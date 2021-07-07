@@ -1,6 +1,8 @@
 package br.com.zupacademy.victor.casadocodigo.Autor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,8 +14,10 @@ public class Autor {
     @Column(nullable = false)
     private String nome;
     @Column(nullable = false, unique = true)
+    @Email
     private String email;
     @Column(nullable = false)
+    @Size(max = 400)
     private String descricao;
     @Column(updatable = false)
     private LocalDateTime dataCadastro = LocalDateTime.now();
