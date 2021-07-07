@@ -14,11 +14,8 @@ import javax.validation.Valid;
 @RequestMapping("/api/v1/autor")
 public class AutorController {
 
-    private final AutorRepository autorRepository;
-
-    public AutorController(AutorRepository autorRepository) {
-        this.autorRepository = autorRepository;
-    }
+    @Autowired
+    private AutorRepository autorRepository;
 
     @PostMapping
     public void cadastraAutor(@Valid @RequestBody CadastraAutorRequest cadastraAutorRequest){
