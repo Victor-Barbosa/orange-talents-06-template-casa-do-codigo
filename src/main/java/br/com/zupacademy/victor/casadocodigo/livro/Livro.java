@@ -70,4 +70,32 @@ public class Livro {
         return titulo;
     }
 
+    public String getResumo() {
+        return resumo;
+    }
+
+    public String getSumario() {
+        return sumario;
+    }
+
+    public BigDecimal getPrecoLivro() {
+        return precoLivro;
+    }
+
+    public Integer getNumeroDePaginas() {
+        return numeroDePaginas;
+    }
+
+    public Integer getIsbn() {
+        return isbn;
+    }
+
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public br.com.zupacademy.victor.casadocodigo.Autor.Autor getAutor() {
+        return Autor;
+    }
+
 }
