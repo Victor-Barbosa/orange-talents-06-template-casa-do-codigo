@@ -4,7 +4,6 @@ import br.com.zupacademy.victor.casadocodigo.Autor.Autor;
 import br.com.zupacademy.victor.casadocodigo.categoria.Categoria;
 
 import javax.persistence.*;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -63,5 +62,12 @@ public class Livro {
 
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
 
 }

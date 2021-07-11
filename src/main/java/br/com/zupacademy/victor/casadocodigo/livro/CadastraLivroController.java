@@ -15,8 +15,8 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1/livro")
-public class LivroController {
+@RequestMapping("/api/v1/livro/cadastra")
+public class CadastraLivroController {
 
     @Autowired
     private CategoriaRepository categoriaRepository;
@@ -52,4 +52,5 @@ public class LivroController {
         Livro novoLivro = cadastraLivroRequest.toModel(categoria, autor);
         livroRepository.save(novoLivro);
     }
+
 }

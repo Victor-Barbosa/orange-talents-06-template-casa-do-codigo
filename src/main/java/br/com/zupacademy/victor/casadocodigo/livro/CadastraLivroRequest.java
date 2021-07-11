@@ -3,7 +3,6 @@ package br.com.zupacademy.victor.casadocodigo.livro;
 import br.com.zupacademy.victor.casadocodigo.Autor.Autor;
 import br.com.zupacademy.victor.casadocodigo.categoria.Categoria;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
@@ -44,7 +43,6 @@ public class CadastraLivroRequest {
         this.categoria = categoria;
         this.emailAutor = emailAutor;
     }
-
 
     public Livro toModel(Categoria categoria, Autor emailAutor) {
         return new Livro(titulo, resumo, sumario, precoLivro, numeroDePaginas, isbn, dataLancamento, categoria, emailAutor);
