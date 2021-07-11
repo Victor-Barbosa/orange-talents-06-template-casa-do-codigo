@@ -22,7 +22,7 @@ public class CategoriaController {
         if (categoriaRepository.existsByNome(cadastraCategoriaRequest.getNome())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Já existe categoria com esse nome!");
         }
-        Categoria novaCategoria = new Categoria(cadastraCategoriaRequest.getNome());
+        Categoria novaCategoria = cadastraCategoriaRequest.toModel();
         categoriaRepository.save(novaCategoria);
     }
 

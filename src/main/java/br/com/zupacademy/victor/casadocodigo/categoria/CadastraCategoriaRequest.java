@@ -17,4 +17,8 @@ public class CadastraCategoriaRequest {
     public String getNome() {
         return nome;
     }
+
+    public Categoria toModel() {
+        return new Categoria(nome);
+    }
 }
