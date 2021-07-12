@@ -25,10 +25,10 @@ public class EstadoController {
     public void cadastraEstado(@Valid @RequestBody CadastraEstadoRequest cadastraEstadoRequest){
 
         var pais = paisRepository.findByNome(cadastraEstadoRequest.nomePais)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não existe esse."));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não existe esse País cadastrado no sistema"));
 
         if (estadoRepository.existsByNomeAndPaisNome(cadastraEstadoRequest.nome, cadastraEstadoRequest.nomePais)){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Já existe livro com esse titulo!");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Já existe esse estado cadastrado para esse País!");
         }
 
       var novoEstado = cadastraEstadoRequest.toModel(pais);

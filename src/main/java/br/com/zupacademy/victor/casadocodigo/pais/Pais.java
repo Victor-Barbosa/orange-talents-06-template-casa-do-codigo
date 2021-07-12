@@ -1,6 +1,10 @@
 package br.com.zupacademy.victor.casadocodigo.pais;
 
+import br.com.zupacademy.victor.casadocodigo.estado.Estado;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Pais {
@@ -10,6 +14,9 @@ public class Pais {
     private Long id;
     @Column(unique = true, nullable = false)
     private String nome;
+
+    @OneToMany(mappedBy = "pais")
+    private List<Estado> estados = new ArrayList<>();
 
     public Pais(String nome) {
         this.nome = nome;
@@ -26,5 +33,9 @@ public class Pais {
 
     public String getNome() {
         return nome;
+    }
+
+    public List<Estado> getEstados() {
+        return estados;
     }
 }
