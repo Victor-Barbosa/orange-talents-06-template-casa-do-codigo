@@ -27,7 +27,7 @@ public class ClienteController {
 
 
     @PostMapping
-    public void cadastraCliente(@Valid @RequestBody CadastraClienteRequest cadastraClienteRequest) {
+    public String cadastraCliente(@Valid @RequestBody CadastraClienteRequest cadastraClienteRequest) {
 
         var pais = paisRepository.findByNome(cadastraClienteRequest.nomePais)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não existe esse País cadastrado no sistema"));
@@ -45,6 +45,7 @@ public class ClienteController {
 
         Cliente novoCliente = cadastraClienteRequest.toModel(pais, estado);
         clienteRepository.save(novoCliente);
+        return clienteRepository.getById(novoCliente.getId()).toString();
     }
 
 }
